@@ -7,7 +7,35 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: ListView(children: [SizedBox(height: 40), FirstGreetings()]),
+        child: ListView(
+          children: [
+            SizedBox(height: 40),
+            FirstGreetings(),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 80,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    height: 80,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: const Color(0xFFD8ECF1),
+                    ),
+                    child: const Icon(
+                      Icons.art_track,
+                      color: Color(0xFF3EBACE),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
